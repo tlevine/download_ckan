@@ -1,1 +1,1 @@
-from download_ckan.download import download
+from download_ckan.download import download as metadata
