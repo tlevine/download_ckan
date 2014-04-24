@@ -20,7 +20,7 @@ def dataset(get, catalog, datasetid):
     return dataset
 
 def download(catalog, warehouse = Warehouse('.ckan', mutable = False), get = requests.get):
-    _get = downloader(functools.partial(get, ''), warehouse)
+    _get = downloader(lambda url: requests.get(url), warehouse)
     dataset_ids_page = functools.partial(dataset_ids, _get, catalog)
     for page in itertools.accumulate(itertools.cycle([1])):
         result = dataset_ids_page(page)
