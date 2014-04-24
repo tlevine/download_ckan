@@ -12,6 +12,6 @@ def test_dataset_ids():
     n.assert_list_equal(observed, [{'a': 3}])
 
 def test_dataset():
-    fake_get = lambda _: Response('[{}]')
+    fake_get = lambda _: Response('{}')
     observed = dl.dataset(fake_get, 'bar-catalog', 'whatever')
     n.assert_dict_equal(observed, {'catalog': 'bar-catalog'})
